@@ -35,3 +35,6 @@ age = 24
 # f,r
 # escaping
 
+
+# a = input("enter number : ")
+# print(a.split("i"))
