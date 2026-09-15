@@ -24,20 +24,25 @@
 
                 <div class="card shadow">
                     <div class="card-header bg-primary text-white text-center">
+                        {%if st%}
+                        <h3 class="mb-0">Update Registration</h3>
+                        {%else%}
                         <h3 class="mb-0">Student Registration</h3>
+                        {%endif%}
                     </div>
 
                     <div class="card-body">
                         <span class="text-success"> {{msg}}</span>
                         <form action="{%url 'register'%}" method="post">
                             {%csrf_token%}
+                            <input type="hidden" name="id" value="{{st.id}}">
                             <!-- Name -->
                             <div class="mb-3">
                                 <label for="name" class="form-label">
                                     Student Name
                                 </label>
                                 <input type="text" class="form-control" id="name" name="name"
-                                    placeholder="Enter student name" required>
+                                    placeholder="Enter student name" value="{{st.name}}" required>
                             </div>
 
                             <!-- Email -->
@@ -46,7 +51,7 @@
                                     Email Address
                                 </label>
                                 <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="Enter email address" required>
+                                    placeholder="Enter email address" value="{{st.email}}" required>
                             </div>
 
                             <!-- Age -->
@@ -55,14 +60,20 @@
                                     Age
                                 </label>
                                 <input type="number" class="form-control" id="age" name="age" placeholder="Enter age"
-                                    min="1" max="100" required>
+                                    min="1" max="100" value="{{st.age}}" required>
                             </div>
 
                             <!-- Buttons -->
                             <div class="d-grid gap-2">
+                                {%if st%}
+                                <button type="submit" class="btn btn-primary">
+                                    Update Student
+                                </button>
+                                {%else%}
                                 <button type="submit" class="btn btn-primary">
                                     Register Student
                                 </button>
+                                {%endif%}
 
                                 <button type="reset" class="btn btn-secondary">
                                     Clear
