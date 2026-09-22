@@ -34,7 +34,7 @@
                         <span class="text-success"> {{msg}}</span>
 
 
-                        <form action="{%url 'register'%}" method="post">
+                        <form action="{%url 'register'%}" method="post" enctype="multipart/form-data">
 
                             {%csrf_token%}
                             <input type="hidden" name="id" value="{{product.id}}">
@@ -67,6 +67,18 @@
 
                                 <input type="number" class="form-control" id="qty" name="qty" value="{{product.qty}}"
                                     placeholder="Enter quantity" min="1" required>
+                            </div>
+
+                            {%if product%}
+                            <img src="media/{{product.image}}" alt="" width="50px" height="50px">
+                            {%endif%}
+                            <div class="mb-3">
+
+                                <label for="qty" class="form-label">
+                                    Image
+                                </label>
+
+                                <input type="file" class="form-control" id="file" name="file">
                             </div>
 
                             <!-- Buttons -->
