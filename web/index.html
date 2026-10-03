@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        // function test() {
+        //     var name = document.getElementById("name").value
+        //     var op = document.getElementById("op")
+        //     op.innerHTML = name
+        // }
+
+        function sample(data) {
+            document.getElementById("data").innerHTML = data
+        }
+
+    </script>
+</head>
+
+
+<body>
+
+    <!-- <input type="text" id="name">
+    <button onclick="test()">Click me</button>
+    <span id="op"></span> -->
+
+
+    <input type="text" onkeyup="sample(value)">
+    <span id="data"></span>
+
+</body>
+
+</html>

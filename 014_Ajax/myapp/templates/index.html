@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+
+        })
+
+
+        function test() {
+            var q = $("#q").val()
+
+            $.get('test', { q }, function (rt) {
+                $("#result").html(rt)
+            })
+
+        }
+
+
+        function search(q) {
+            $.get('search', { q }, function (rt) {
+                $("#resp").html(rt)
+            })
+        }
+
+
+    </script>
+
+
+
+
+</head>
+
+<body>
+
+    <input type="text" id="q">
+    <button onclick="test()">Click me</button>
+    <span id="result"></span>
+
+    <br>
+    <hr>
+    <br>
+
+
+    <input type="text" onkeyup="search(value)">
+    <div id="resp"></div>
+
+</body>
+
+</html>

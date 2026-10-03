@@ -30,21 +30,21 @@
                             <div class="mb-3">
                                 <label for="name" class="form-label">Product Name</label>
                                 <input type="text" class="form-control" id="name" name="name"
-                                    placeholder="Enter product name" required>
+                                    placeholder="Enter product name" value="{{product.name}}" required>
                             </div>
 
                             <!-- Price -->
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price</label>
                                 <input type="number" class="form-control" id="price" name="price"
-                                    placeholder="Enter price" step="0.01" required>
+                                    placeholder="Enter price" step="0.01" value="{{product.price}}" required>
                             </div>
 
                             <!-- Quantity -->
                             <div class="mb-3">
                                 <label for="qty" class="form-label">Quantity</label>
                                 <input type="number" class="form-control" id="qty" name="qty"
-                                    placeholder="Enter quantity" min="1" required>
+                                    placeholder="Enter quantity" min="1" value="{{product.qty}}" required>
                             </div>
 
                             <!-- Manufacturing Date -->
@@ -52,14 +52,15 @@
                                 <label for="mfg_date" class="form-label">
                                     Manufacturing Date
                                 </label>
-                                <input type="date" class="form-control" id="mfg_date" name="mfg_date" required>
+                                <input type="date" class="form-control" id="mfg_date" name="mfg_date" value="{{product.mfg}}"
+                                    required>
                             </div>
 
                             <!-- Brand -->
                             <div class="mb-3">
                                 <label for="brand" class="form-label">Brand</label>
                                 <input type="text" class="form-control" id="brand" name="brand"
-                                    placeholder="Enter brand name" required>
+                                    placeholder="Enter brand name" value="{{product.brand}}" required>
                             </div>
 
                             <!-- Category -->
@@ -69,8 +70,10 @@
                                     <option value="">Select Category</option>
 
                                     {%for cat in categoris%}
-                                    <option value="{{cat.id}}">{{cat.name}}</option>
+                                    <option value="{{cat.id}}" {%if cat.id == product.category.id%}selected{%endif%}>
+                                        {{cat.name}}</option>
                                     {%endfor%}
+
                                 </select>
                             </div>
 

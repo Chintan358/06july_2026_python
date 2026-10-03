@@ -34,6 +34,7 @@
                             <th>MFG Date</th>
                             <th>Brand</th>
                             <th>Category</th>
+                            <th colspan="2">Action</th>
                         </tr>
                     </thead>
 
@@ -48,6 +49,8 @@
                             <td>{{pro.mfg}}</td>
                             <td>{{pro.brand}}</td>
                             <td>{{pro.category.name}}</td>
+                            <td><a href="{%url 'delete'%}?id={{pro.id}}" class="btn btn-danger">Delete</a></td>
+                            <td><a href="{%url 'update'%}?id={{pro.id}}" class="btn btn-primary">Update</a></td>
                         </tr>
                         {%endfor%}
 
