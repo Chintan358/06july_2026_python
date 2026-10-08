@@ -1,5 +1,5 @@
 from django.contrib import admin
-from myapp.models import product
+from myapp.models import *
 # Register your models here.
 
 class ProductDisplay(admin.ModelAdmin):
@@ -8,3 +8,7 @@ class ProductDisplay(admin.ModelAdmin):
    
 
 admin.site.register(product,ProductDisplay)
+
+admin.site.register(Country)
+admin.site.register(State)
+admin.site.register(City)
