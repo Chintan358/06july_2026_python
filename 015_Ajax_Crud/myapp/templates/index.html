@@ -46,6 +46,33 @@
 
         }
 
+
+        function search(q) {
+
+            $.get("search", { q }, function (rt) {
+
+                var rows = ""
+                rt.data.map(ele => {
+
+                    rows += `<tr>
+                      <td>${ele.id}</td> 
+                      <td>${ele.name}</td>    
+                      <td>${ele.price}</td>    
+                      <td>${ele.qty}</td>
+                      <td>${ele.brand}</td>     
+                      <td><button class='btn btn-danger' onclick='delete_product(${ele.id})'>Delete</button></td>  
+                        <td><button class='btn btn-primary' onclick='retrive_product(${ele.id})'>Update</button></td>  
+                    </tr>`
+
+                })
+
+                $("#tdata").html(rows)
+
+
+            })
+
+        }
+
         function register() {
             var name = $("#name").val()
             var price = $("#price").val()
@@ -206,6 +233,10 @@
                     </div>
 
                     <div class="card-body">
+
+                        <input type="text" class="form-control" placeholder="search..." onkeyup="search(value)">
+                        <br>
+
 
                         <table class="table table-bordered table-striped">
 

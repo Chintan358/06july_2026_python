@@ -9,5 +9,6 @@ urlpatterns = [
     path("display",display,name="display"),
     path("delete",delete_product,name="delete"),
     path("retrive",retrive_product,name="retrive"),
-    path("update",update_product,name="update")
+    path("update",update_product,name="update"),
+    path("search",search,name="search")
 ]

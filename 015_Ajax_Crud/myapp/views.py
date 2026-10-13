@@ -55,3 +55,9 @@ def update_product(request):
                         
            
             return HttpResponse("Update successfully !!!")
+        
+        
+def search(request):
+    q = request.GET.get("q")
+    products = Product.objects.filter(name__startswith=q) or Product.objects.filter(brand__startswith=q)
+    return JsonResponse({"data":list(products.values())})
